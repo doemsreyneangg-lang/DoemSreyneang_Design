@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+    <style>
+        body{
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            color: white;
+
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            grid-template-areas: "header header" "main sidebar" "footer footer";
+            gap: 1rem;
+        }
+
+        header, sidebar, footer{
+            padding: 1.5rem;
+            font-weight: bold;
+        }
+        header { 
+            grid-area: header; 
+            background-color: #1e90ff; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 6px 0 #0077ea; 
+        }
+
+        main { 
+            grid-area: main; 
+            background-color: #3cb371; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 6px 0 #2f8d59; 
+            padding: 1rem;
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); gap: 1rem; 
+            align-content: start;
+        }
+
+        items { 
+            background-color: #2f8d59; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 4px 0 #226741; 
+            padding: 1.5rem 1rem; 
+            text-align: center; 
+            font-weight: bold; 
+        }
+
+
+        sidebar { 
+            grid-area: sidebar; 
+            background-color: #ff6347; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 6px 0 #e02200; 
+            text-align: center; 
+        }
+        footer { 
+            grid-area: footer; 
+            background-color: #4169e1; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 6px 0 #1d44b8; 
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+
+    <main>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+        <items>item</items>
+    </main>
+
+    <sidebar>sidebar</sidebar>
+
+    <footer>footer</footer>
+</body>
+</html>
