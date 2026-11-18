@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <form class="signup-form">
+            <!-- Form Header -->
+            <div class="form-header">
+                <h2>Create Account</h2>
+            </div>
+
+            <!-- Form Body -->
+            <div class="form-body">
+                <!-- Row 1: First Name & Last Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First name *</label>
+                        <input type="text" id="firstname" placeholder="enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last name</label>
+                        <input type="text" id="lastname" placeholder="enter your last name">
+                    </div>
+                </div>
+
+                <!-- Row 2: Email (Full Width) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" placeholder="enter your email" required>
+                    </div>
+                </div>
+
+                <!-- Row 3: Password & Confirm Password -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" placeholder="enter your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password *</label>
+                        <input type="password" id="confirm-password" placeholder="enter your password again" required>
+                    </div>
+                </div>
+
+                <!-- Row 4: Gender & Hobbies -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="options-group">
+                            <label class="option-item"><input type="radio" name="gender" value="male"> Male</label>
+                            <label class="option-item"><input type="radio" name="gender" value="female"> Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Hobbies</label>
+                        <div class="options-group">
+                            <label class="option-item"><input type="checkbox" name="hobbies" value="music"> Music</label>
+                            <label class="option-item"><input type="checkbox" name="hobbies" value="sports"> Sports</label>
+                            <label class="option-item"><input type="checkbox" name="hobbies" value="travel"> Travel</label>
+                            <label class="option-item"><input type="checkbox" name="hobbies" value="movies"> Movies</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 5: Source of Income & Income Range -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="income-source">Source of Income</label>
+                        <select id="income-source">
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="student">Student</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Income</label>
+                        <div class="range-wrapper">
+                            <input type="range" id="income" min="0" max="100" value="20">
+                            <span class="range-badge">20K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 6: Profile Picture & Age -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-pic">Upload Profile Picture</label>
+                        <input type="file" id="profile-pic">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" value="18" min="1">
+                    </div>
+                </div>
+
+                <!-- Row 7: Bio (Full Width) -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Footer -->
+            <div class="form-footer">
+                <button type="submit" class="btn-create">Create</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

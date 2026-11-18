@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #3f6f7f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.signup-form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header & Footer */
+.form-header {
+    background-color: #eff0f1;
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.form-header h2 {
+    color: #666666;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form-footer {
+    background-color: #eff0f1;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #dcdcdc;
+}
+
+/* Form Body & Flexbox Grid */
+.form-body {
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.form-group > label {
+    color: #1abc9c;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Standard Text, Email, Password, Number, Select, and Textarea Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #333333;
+}
+
+input::placeholder {
+    color: #bbbbbb;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Radio Buttons & Checkboxes */
+.options-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.option-item {
+    color: #555555;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+/* Income Slider & Badge */
+.range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+}
+
+.range-badge {
+    background-color: #1abc9c;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* File Input */
+input[type="file"] {
+    font-size: 0.8rem;
+    color: #555555;
+    padding-top: 4px;
+}
+
+/* Submit Button */
+.btn-create {
+    background-color: #1abc9c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-create:hover {
+    background-color: #16a085;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 550px) {
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
