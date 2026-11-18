@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingLee Dashboard</title>
+
+    <style>
+
+/* ===== GENERAL ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #dce1ec;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+    color: #34364e;
+}
+
+
+/* ===== DASHBOARD ===== */
+
+.dashboard {
+    width: 1100px;
+    min-height: 620px;
+    background-color: white;
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: 150px 1fr 220px;
+
+    overflow: hidden;
+}
+
+
+/* ===== LEFT SIDEBAR ===== */
+
+.sidebar {
+    padding: 25px 15px;
+    border-right: 1px solid #f1f1f5;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #858ba5;
+    font-size: 12px;
+    padding: 5px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #4d64e8;
+    border-right: 3px solid #6679ff;
+}
+
+
+/* UPGRADE */
+
+.upgrade {
+    margin-top: auto;
+    background-color: #f5f5ff;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+}
+
+.folder {
+    font-size: 35px;
+}
+
+.upgrade p {
+    font-size: 10px;
+    color: #9298b1;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.upgrade button {
+    background-color: #6179f5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+
+/* ===== MAIN CONTENT ===== */
+
+.main-content {
+    padding: 25px;
+    min-width: 0;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.top-header h3 {
+    font-size: 14px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-right span {
+    font-size: 10px;
+    color: #999eb3;
+}
+
+.search {
+    background-color: #edf0ff;
+    color: #536be9;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+
+/* ===== WELCOME BANNER ===== */
+
+.welcome {
+    background-color: #fae9ed;
+    border-radius: 12px;
+    padding: 25px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.welcome h3 {
+    color: #ff697c;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.student-image {
+    font-size: 65px;
+}
+
+
+/* ===== STATISTICS ===== */
+
+.statistics {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 15px;
+}
+
+.card {
+    background-color: #fafaff;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h4 {
+    font-size: 12px;
+}
+
+.card-header span {
+    font-size: 10px;
+    color: #777e99;
+}
+
+
+/* ===== LATEST RESULTS ===== */
+
+.result-item {
+    display: grid;
+    grid-template-columns: 1fr 45px 25px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.result-item span {
+    font-size: 10px;
+    color: #777e99;
+}
+
+.result-item small {
+    font-size: 9px;
+    color: #ff697c;
+}
+
+.progress {
+    height: 3px;
+    background-color: #e1e3ec;
+}
+
+.red {
+    height: 100%;
+    background-color: #ff697c;
+}
+
+.blue {
+    height: 100%;
+    background-color: #5879ff;
+}
+
+
+/* ===== LEARNING CHART ===== */
+
+.days {
+    display: flex;
+    justify-content: space-between;
+    color: #999eb3;
+    font-size: 9px;
+}
+
+.chart {
+    height: 120px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    margin: 15px 0;
+    border-bottom: 1px solid #eeeef5;
+}
+
+.bar {
+    width: 3px;
+    border-radius: 5px;
+}
+
+.red-bar {
+    background-color: #ff697c;
+}
+
+.blue-bar {
+    background-color: #5879ff;
+}
+
+.purple-bar {
+    background-color: #5152b7;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    color: #858ba5;
+}
+
+
+/* ===== YOUR COURSES ===== */
+
+.courses {
+    margin-top: 25px;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.course {
+    padding: 12px 10px;
+    border-radius: 12px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.course small {
+    font-size: 8px;
+}
+
+.course h4 {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.level {
+    background-color: rgba(255,255,255,0.3);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+.purple {
+    background-color: #5553b8;
+}
+
+.lavender {
+    background-color: #9693d9;
+}
+
+.pink {
+    background-color: #ff788b;
+}
+
+
+/* ===== RIGHT SIDEBAR ===== */
+
+.right-sidebar {
+    padding: 25px 20px;
+    border-left: 1px solid #f1f1f5;
+}
+
+
+/* LOGOUT */
+
+.logout {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+
+
+/* PROFILE */
+
+.profile {
+    text-align: center;
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.avatar {
+    width: 75px;
+    height: 75px;
+    border: 2px solid #eeeef5;
+    border-radius: 50%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.profile h3 {
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.profile p {
+    font-size: 10px;
+    color: #999eb3;
+    margin-top: 8px;
+}
+
+.plus {
+    background-color: #5879ff;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 55px;
+    left: 60%;
+}
+
+
+/* ===== LANGUAGES ===== */
+
+.languages {
+    margin-bottom: 35px;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.language b {
+    display: block;
+    font-size: 10px;
+}
+
+.language small {
+    display: block;
+    font-size: 8px;
+    color: #999eb3;
+    margin-top: 5px;
+}
+
+.small-progress {
+    width: 40px;
+    height: 3px;
+    background-color: #5879ff;
+    margin-left: auto;
+}
+
+
+/* ===== REMINDERS ===== */
+
+.reminders h4 {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.reminder {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.reminder-icon {
+    background-color: #f0f2ff;
+    color: #5879ff;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.reminder b {
+    display: block;
+    font-size: 9px;
+}
+
+.reminder small {
+    display: block;
+    font-size: 8px;
+    color: #999eb3;
+    margin-top: 5px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+    .dashboard {
+        grid-template-columns: 130px 1fr;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .upgrade {
+        display: none;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .course-list {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome {
+        padding: 15px;
+    }
+
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- LEFT SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2 class="logo">🔵 LingLee</h2>
+
+        <nav>
+            <a href="#" class="active">▣ Dashboard</a>
+            <a href="#">▱ Classes</a>
+            <a href="#">▢ Resources</a>
+            <a href="#">▦ Learning plan</a>
+            <a href="#">♧ Chat</a>
+            <a href="#">⚙ Settings</a>
+        </nav>
+
+        <div class="upgrade">
+            <div class="folder">📂</div>
+            <p>Upgrade to <b>PRO</b> for more resources.</p>
+            <button>Upgrade</button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <h3>Dashboard</h3>
+
+            <div class="header-right">
+                <span>20 Sep 2019, Friday</span>
+                <button class="search">⌕</button>
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <div>
+                <h3>Welcome back Anna!</h3>
+
+                <p>You've learned <b>80%</b> of your goal this week!</p>
+
+                <p>Keep it up and improve your results!</p>
+            </div>
+
+            <div class="student-image">
+                👩🏻‍💻
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="statistics">
+
+            <!-- LATEST RESULTS -->
+
+            <div class="results card">
+
+                <div class="card-header">
+                    <h4>Latest results</h4>
+                    <span>More →</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Unit 5 - Technology</span>
+
+                    <div class="progress">
+                        <div class="red" style="width:25%"></div>
+                    </div>
+
+                    <small>25%</small>
+                </div>
+
+                <div class="result-item">
+                    <span>Unit 12 - Ecology</span>
+
+                    <div class="progress">
+                        <div class="blue" style="width:44%"></div>
+                    </div>
+
+                    <small>44%</small>
+                </div>
+
+                <div class="result-item">
+                    <span>Unit 9 - Real estate</span>
+
+                    <div class="progress">
+                        <div class="blue" style="width:40%"></div>
+                    </div>
+
+                    <small>40%</small>
+                </div>
+
+                <div class="result-item">
+                    <span>Unit 8 - Education</span>
+
+                    <div class="progress">
+                        <div class="red" style="width:15%"></div>
+                    </div>
+
+                    <small>15%</small>
+                </div>
+
+                <div class="result-item">
+                    <span>Unit 16 - Job market</span>
+
+                    <div class="progress">
+                        <div class="blue" style="width:76%"></div>
+                    </div>
+
+                    <small>76%</small>
+                </div>
+
+            </div>
+
+
+            <!-- LEARNING CHART -->
+
+            <div class="learning card">
+
+                <div class="card-header">
+                    <h4>Time spent on learning</h4>
+                    <span>Last week ⌄</span>
+                </div>
+
+                <div class="days">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+
+                <div class="chart">
+
+                    <div class="bar red-bar" style="height:75%"></div>
+
+                    <div class="bar blue-bar" style="height:55%"></div>
+
+                    <div class="bar purple-bar" style="height:85%"></div>
+
+                    <div class="bar red-bar" style="height:70%"></div>
+
+                    <div class="bar red-bar" style="height:90%"></div>
+
+                    <div class="bar purple-bar" style="height:80%"></div>
+
+                    <div class="bar blue-bar" style="height:75%"></div>
+
+                </div>
+
+                <div class="legend">
+                    <span>🔴 Vocabulary</span>
+                    <span>🔵 Grammar</span>
+                    <span>🔵 Listening</span>
+                    <span>⚪ Writing</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- YOUR COURSES -->
+
+        <section class="courses">
+
+            <div class="card-header">
+                <h4>Your courses</h4>
+                <span>More →</span>
+            </div>
+
+            <div class="course-list">
+
+                <div class="course purple">
+
+                    <span class="level">B2</span>
+
+                    <div>
+                        <small>Business English</small>
+                        <h4>Grammar</h4>
+                    </div>
+
+                    <span>→</span>
+
+                </div>
+
+
+                <div class="course lavender">
+
+                    <span class="level">B2</span>
+
+                    <div>
+                        <small>Common English</small>
+                        <h4>Phrasal verbs</h4>
+                    </div>
+
+                    <span>→</span>
+
+                </div>
+
+
+                <div class="course pink">
+
+                    <span class="level">C1</span>
+
+                    <div>
+                        <small>Business Spanish</small>
+                        <h4>Vocabulary</h4>
+                    </div>
+
+                    <span>→</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT SIDEBAR -->
+
+    <aside class="right-sidebar">
+
+        <div class="logout">
+            <span>Logout</span>
+            <span>↪</span>
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile">
+
+            <div class="avatar">👩🏻</div>
+
+            <h3>Anna Morrison</h3>
+
+            <p>Student</p>
+
+            <span class="plus">+</span>
+
+        </div>
+
+
+        <!-- LANGUAGES -->
+
+        <section class="languages">
+
+            <div class="language">
+
+                <span class="level">B2</span>
+
+                <div>
+                    <b>English</b>
+                    <small>High intermediate</small>
+                </div>
+
+                <div class="small-progress"></div>
+
+            </div>
+
+
+            <div class="language">
+
+                <span class="level">C1</span>
+
+                <div>
+                    <b>Spanish</b>
+                    <small>Advanced</small>
+                </div>
+
+                <div class="small-progress"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REMINDERS -->
+
+        <section class="reminders">
+
+            <h4>Reminders</h4>
+
+
+            <div class="reminder">
+
+                <span class="reminder-icon">◉</span>
+
+                <div>
+                    <b>Eng - Vocabulary test</b>
+                    <small>24 Sep 2019, Friday</small>
+                </div>
+
+            </div>
+
+
+            <div class="reminder">
+
+                <span class="reminder-icon">✉</span>
+
+                <div>
+                    <b>Eng - Send grammar homework</b>
+                    <small>29 Sep 2019, Wednesday</small>
+                </div>
+
+            </div>
+
+
+            <div class="reminder">
+
+                <span class="reminder-icon">✉</span>
+
+                <div>
+                    <b>Spanish - Send essay</b>
+                    <small>05 Oct 2019, Monday</small>
+                </div>
+
+            </div>
+
+
+            <div class="reminder">
+
+                <span class="reminder-icon">▢</span>
+
+                <div>
+                    <b>Spanish - Reading task</b>
+                    <small>10 Oct 2019, Friday</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </aside>
+
+</div>
+
+</body>
+</html>
