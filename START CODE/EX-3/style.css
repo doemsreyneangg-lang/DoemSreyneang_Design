@@ -1,0 +1,11 @@
+/* TODO */
+
+.button{
+    background-color: rgb(218, 78, 134);
+    padding: 12px;
+    border-radius: 8px;
+    }
+.button:hover{
+    background-color: aqua;
+    color: aliceblue;
+}  
