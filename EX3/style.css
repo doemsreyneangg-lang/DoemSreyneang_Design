@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+.header{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+}
+.main-a{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+.sidebar{
+    background-color: rgb(123, 121, 121);
+    padding:10px;
+    border-radius: 10px;
+}
+.footer{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+@media (min-width: 600px) and (max-width: 900px){
+    .main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 901px){
+    .main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

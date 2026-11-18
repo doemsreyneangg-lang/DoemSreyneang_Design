@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.content {
+    /* Width: Never smaller than 300px */
+    /* In between width: 100% */
+    /* Width: Never bigger than 800px */
+    width: clamp(300px, 100%, 800px);
+    height: 400px;
+    background-color: #b4e600;
+}
